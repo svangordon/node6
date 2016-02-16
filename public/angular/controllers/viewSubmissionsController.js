@@ -1,10 +1,14 @@
 angular.module('app')
-	.controller('viewSubmissionsController', ['$scope', 'submissionsFactory', function (scope, submissions) {
+	.controller('viewSubmissionsController', ['$scope', '$sce', 'submissionsFactory', function (scope, sce, submissions) {
 		submissions.getVideos()
 			.then(function(data) {
 				scope.videos = data
 		})
 
-		console.log(scope.videos)
+		scope.trustUrl = function (url, videoId) {
+			if (url === scope.videos[videoId].url) {
+				return sce.trustAsResourceUrl(url)
+			}
+		}
 
 	}])

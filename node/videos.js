@@ -35,12 +35,14 @@ VideoList.prototype.stringify = function () {
 	return JSON.stringify(this.videos, null, 4)
 }
 
+VideoList.prototype.setVideos = function (jsonFile) {
+	this.videos = JSON.parse(jsonFile);
+	this.length = this.videos.length
+}
+
 var submissions = new VideoList();
 
-submissions.addVideo('John Doe', 'google.com', 'buy some chz', "I'd like to buy some cheese")
-submissions.addVideo('John Doe', 'google.com', 'buy some chz', "I'd like to buy some more cheese")
 
-console.log(submissions.getById(1))
 module.exports = {
-	submissions : submissions
+	submissions : submissions,
 }

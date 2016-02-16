@@ -21,35 +21,24 @@ app.get('/', function (req, res) {
 	})
 })
 
-app.get('/submit', function(req, res){
-  fs.readFile('./submit.html', function (err, data) {
-  	if (err) throw err;
-  	res.header('Content-Type', 'text/html');
-  	res.send(data)
-  })
-});
 
 app.post('/formsubmit', function (req, res) {
 	var submittedBy = req.body.submittedBy;
 	var url = req.body.url;
 	var title = req.body.title
 	var desc = req.body.desc
-	videos.submissions.addVideo(submittedBy, url, title, desc);
-	// fs.writeFile('./data/submissions.json', videos.submissions.stringify(), function() {
-	// 	if (err) throw err
-		fs.readFile('./index.html', function (err, data) {
-			if (err) throw err;
-			var submittedBy = req.body.submittedBy;
-			var url = req.body.url;
-			var title = req.body.title
-			var desc = req.body.desc
-			videos.submissions.addVideo(submittedBy, url, title, desc);
-			res.header('Content-Type', 'text/html');
-			res.send(data)
-
-			fs.writeFile('./data/submissions.json', videos.submissions.stringify(), function() {})
-		})
-	// })
+	fs.readFile('./index.html', function (err, data) {
+		if (err) throw err;
+		var submittedBy = req.body.submittedBy;
+		var url = req.body.url;
+		var title = req.body.title
+		var desc = req.body.desc
+		res.header('Content-Type', 'text/html');
+		res.redirect('/')
+		
+		videos.submissions.addVideo(submittedBy, url, title, desc);
+		fs.writeFile('./data/submissions.json', videos.submissions.stringify(), function() {})
+	})
 })
 
 app.get('/submitted-videos', function (req, res) {
@@ -62,6 +51,12 @@ app.get('/submitted-videos', function (req, res) {
 
 app.post('/viewvideos', function (req, res) {
 
+})
+
+// Set the videos content equal to the videos json file \\
+fs.readFile('./data/submissions.json' , 'utf8' , function (err, data) {
+	if (err) throw err;
+	videos.submissions.setVideos(data);
 })
 
 // Creating Server and Listening for Connections \\

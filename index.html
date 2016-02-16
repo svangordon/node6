@@ -64,7 +64,7 @@
 					</div>
 					<div class="form-group">
 						<label>URL:</label>
-						<input type="url" name="url" class="form-control" value="https://www.google.com/">
+						<input type="url" name="url" class="form-control" value="https://www.youtube.com/embed/RLhmG-LIwnE">
 					</div>
 					<div class="form-group">
 						<label>Title:</label>
@@ -81,11 +81,13 @@
 		    </div>
 		    <div ng-controller="viewSubmissionsController" role="tabpanel" class="tab-pane" id="view">
 			    <div class="row">
-			    	<div class="col-xs-12 col-sm-6 col-lg-4 thumbnail" ng-repeat="video in videos">
+			    	<div class="col-xs-6 thumbnail " ng-repeat="video in videos">
 			    		<h4 ng-bind="video.title"></h4>
-			    		<iframe width="560" height="315" ng-src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+			    		<div class="embed-responsive embed-responsive-4by3">
+			    			<iframe class="embed-responsive-item" ng-src="{{trustUrl(video.url, video.id)}}" frameborder="0" allowfullscreen></iframe>
+		    			</div>
 			    		<p ng-bind="video.desc"></p>
-			    		<button>Vote</button> <span class="badge">+{{video.votes.up}}</span> <small class="pull-righ">submitted by {{video.submittedBy}}</small>
+			    		<button>Vote</button> <span class="badge">+{{video.votes.up}}</span> <small class="pull-right">submitted by {{video.submittedBy}}</small>
 			    	</div>
 		    	</div>
 		    </div>
