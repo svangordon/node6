@@ -54,7 +54,7 @@
 
 		  <!-- Tab panes -->
 		  <div class="tab-content">
-		    <div role="tabpanel" class="tab-pane active" id="home">Home</div>
+		    <div role="tabpanel" class="tab-pane active" id="home">This is the Home tab</div>
 		    <div ng-controller="submitController" role="tabpanel" class="tab-pane" id="submit">
 				<form method="post" action="/formsubmit">
 					<h2>Submit a Video</h2>
@@ -79,7 +79,16 @@
 					</div>
 				</form>		    	
 		    </div>
-		    <div role="tabpanel" class="tab-pane" id="view">View</div>
+		    <div ng-controller="viewSubmissionsController" role="tabpanel" class="tab-pane" id="view">
+			    <div class="row">
+			    	<div class="col-xs-12 col-sm-6 col-lg-4 thumbnail" ng-repeat="video in videos">
+			    		<h4 ng-bind="video.title"></h4>
+			    		<iframe width="560" height="315" ng-src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+			    		<p ng-bind="video.desc"></p>
+			    		<button>Vote</button> <span class="badge">+{{video.votes.up}}</span> <small class="pull-righ">submitted by {{video.submittedBy}}</small>
+			    	</div>
+		    	</div>
+		    </div>
 		    <div role="tabpanel" class="tab-pane" id="winner">Winner</div>
 		  </div>
 
