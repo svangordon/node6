@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<!-- If it turns out that I don't need JQ, -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Bootstrap: Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Bootstrap: Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+
+	<!-- ng module -->
+	<script type="text/javascript" src="/angular/module.js"></script>
+
+	<!-- ng factories -->
+	<script type="text/javascript" src="/angular/factories/submissionsFactory.js"></script>
+	<script type="text/javascript" src="/angular/factories/contestFactory.js"></script>
+
+	<!-- angular controller -->
+	<script type="text/javascript" src="/angular/controllers/homeController.js"></script>
+	<script type="text/javascript" src="/angular/controllers/submitController.js"></script>
+	<script type="text/javascript" src="/angular/controllers/viewSubmissionsController.js"></script>
+	<script type="text/javascript" src="/angular/controllers/winnerController.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="/styles/main.css">
+
+	<title></title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="page-header">
+			<h1>The Most Cheese in the World Contest</h1>
+		</div>
+	</div>
+
+	<div class="container">
+
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+		    <li role="presentation"><a href="#submit" aria-controls="profile" role="tab" data-toggle="tab">Submit an Entry</a></li>
+		    <li role="presentation"><a href="#view" aria-controls="messages" role="tab" data-toggle="tab">View Submissions</a></li>
+		    <li role="presentation"><a href="#winner" aria-controls="settings" role="tab" data-toggle="tab">Winner</a></li>
+		  </ul>
+
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div role="tabpanel" class="tab-pane active" id="home">Home</div>
+		    <div ng-controller="submitController" role="tabpanel" class="tab-pane" id="submit">
+				<form method="post" action="/formsubmit">
+					<h2>Submit a Video</h2>
+					<div class="form-group">
+						<label>Name:</label>
+						<input type="text" name="submittedBy" class="form-control" value="John Doe">
+					</div>
+					<div class="form-group">
+						<label>URL:</label>
+						<input type="url" name="url" class="form-control" value="https://www.google.com/">
+					</div>
+					<div class="form-group">
+						<label>Title:</label>
+						<input type="text" name="title" class="form-control" value="Eating Cheese">
+					</div>
+					<div class="form-group">
+						<label>Description:</label>
+						<input type="text" name="desc" class="form-control" value="I'd Like to Buy Some Cheese">
+					</div>
+					<div class="form-group">
+						<input type="submit">
+					</div>
+				</form>		    	
+		    </div>
+		    <div role="tabpanel" class="tab-pane" id="view">View</div>
+		    <div role="tabpanel" class="tab-pane" id="winner">Winner</div>
+		  </div>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+    "0": {
+        "submittedBy": "John Doe",
+        "url": "google.com",
+        "title": "buy some chz",
+        "desc": "I'd like to buy some cheese",
+        "id": 0,
+        "votes": {
+            "up": 1,
+            "down": 0
+        }
+    },
+    "1": {
+        "submittedBy": "John Doe",
+        "url": "google.com",
+        "title": "buy some chz",
+        "desc": "I'd like to buy some more cheese",
+        "id": 1,
+        "votes": {
+            "up": 1,
+            "down": 0
+        }
+    },
+    "2": {
+        "submittedBy": "John Doe",
+        "url": "https://www.google.com/",
+        "title": "Eating Cheese",
+        "desc": "I'd Like to Buy Some Cheese",
+        "id": 2,
+        "votes": {
+            "up": 1,
+            "down": 0
+        }
+    },
+    "3": {
+        "submittedBy": "John Doe",
+        "url": "https://www.google.com/",
+        "title": "Eating Cheese",
+        "desc": "I'd Like to Buy Some Cheese",
+        "id": 3,
+        "votes": {
+            "up": 1,
+            "down": 0
+        }
+    }
+}
